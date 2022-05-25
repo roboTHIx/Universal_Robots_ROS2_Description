@@ -383,6 +383,24 @@
       <parent link="${prefix}flange"/>
       <child link="${prefix}tool0"/>
     </joint>
+    
+    <!-- ROS-Industrial 'gripper_TCP' frame - all-zeros tool frame -->
+    <link name="${prefix}gripper_TCP"/>
+    <joint name="${prefix}flange-gripper_TCP" type="fixed">
+      <!-- default toolframe - X+ left, Y+ up, Z+ front -->
+      <origin xyz="0.18093 0.1585 0" rpy="${pi/2.0} 0 ${pi-(pi/4.0)}"/>
+      <parent link="${prefix}flange"/>
+      <child link="${prefix}gripper_TCP"/>
+    </joint>
+
+    <!-- ROS-Industrial 'magnet_TCP' frame - all-zeros tool frame -->
+    <link name="${prefix}magnet_TCP"/>
+    <joint name="${prefix}flange-magnet_TCP" type="fixed">
+      <!-- default toolframe - X+ left, Y+ up, Z+ front -->
+      <origin xyz="0.0295 -0.112 0" rpy="${pi/2.0} 0 0"/>
+      <parent link="${prefix}flange"/>
+      <child link="${prefix}magnet_TCP"/>
+    </joint>
 
   </xacro:macro>
 </robot>
